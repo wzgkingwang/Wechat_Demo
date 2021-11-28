@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "start": "nodemon -x npm run server",
+    "server": "node --inspect index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "axios": "^0.21.0",
+    "cors": "^2.8.5",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-connect": "^2.1.0",
+    "moment": "^2.29.1",
+    "mysql2": "^2.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}

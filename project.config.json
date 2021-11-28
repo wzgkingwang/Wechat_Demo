@@ -40,9 +40,9 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.20.0",
+  "libVersion": "2.21.0",
   "appid": "wxf578b7afee4a797f",
-  "projectname": "king_2",
+  "projectname": "king",
   "debugOptions": {
     "hidedInDevtools": []
   },
