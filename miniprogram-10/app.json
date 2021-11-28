@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/CircleFriends/CircleFriends",
     "pages/index/index",
     "pages/about/about",
-    "pages/reg/reg",
-    "pages/CircleFriends/CircleFriends"
+    "pages/demo_1/demo_1"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -22,7 +22,7 @@
       {
         "pagePath": "pages/CircleFriends/CircleFriends",
         "text": "首页",
-        "iconPath": "/images/icon_1.png",
+        "iconPath": "/images/icon_2.png",
         "selectedIconPath": "/images/icon_11.png"
       },
       {

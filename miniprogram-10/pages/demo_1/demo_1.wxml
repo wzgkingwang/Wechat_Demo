@@ -1,0 +1,19 @@
+<!--pages/t_demo/t_demo.wxml-->
+<view class="title">
+  <!-- 背景图片-->
+  <view>
+    <image class="backgroung_p" src="http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg"/>
+  </view>
+  <!-- 个性签名 -->
+  <view class="box3">
+    <text class="my_text">你曾少年</text>
+  </view>
+  <!-- 头像 -->
+<view>
+  <image class="img" src="/images/wechat—tie.png" />
+</view>
+  <!-- 微信名 -->
+  <view>
+  <text class="Wechat_name" style="">匿名</text>
+  </view>
+</view>

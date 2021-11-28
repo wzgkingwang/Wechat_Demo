@@ -1,1 +1,4 @@
-/* pages/logs/logs.wxss */
+
+.log-item {
+  margin:50%;
+}

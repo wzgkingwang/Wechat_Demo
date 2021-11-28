@@ -6,6 +6,10 @@
   color: #aaa;
 }
 
+.back{
+  background-color: paleturquoise;
+}
+
 .userinfo-avatar {
   overflow: hidden;
   width: 128rpx;
@@ -14,6 +18,7 @@
   border-radius: 50%;
 }
 
-.usermotto {
+.user-motto {
   margin-top: 200px;
+ 
 }

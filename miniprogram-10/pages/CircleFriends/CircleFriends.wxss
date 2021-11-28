@@ -1,4 +1,72 @@
-/* pages/CircleFriends/CircleFriends.wxss */
+.title{
+  width: 750rpx; 
+  height: 368rpx; 
+  display: block; 
+  box-sizing: border-box; 
+  left: NaNrpx; 
+  top: NaNrpx
+}
+
+.backgroung_p{
+  background-color: aqua;
+  width: 100%;
+  height: 300rpx;
+  margin-top:0;
+  display: flex;
+}
+
+/* 个性签名 盒子 */
+.box3{
+  background-color:white;
+  width: 750rpx; 
+  height: 72rpx;
+  display: flex; 
+  box-sizing: border-box;
+  left: NaNrpx; 
+  top: NaNrpx
+}
+
+/* 个性签名 */
+.my_text{
+  position: relative;
+   left: 60%; 
+   top: 10rpx; 
+   width: 186rpx; 
+   height: 52rpx; 
+   display: block; 
+   box-sizing: border-box
+}
+
+/* 微信名 */
+.Wechat_name{
+  position: relative; 
+  left: 384rpx; 
+  top: -207rpx;
+  width: 104rpx; 
+  height: 48rpx; 
+  display: inline-block; 
+  box-sizing: border-box
+}
+
+
+
+
+/* 头像 */
+.img{
+  position: relative; 
+  left: 591rpx;
+  top: -146rpx;
+  width: 128rpx; 
+  height: 120rpx; 
+  display: inline-block; 
+  box-sizing: border-box;
+  border-radius:10%;
+}
+
+
+
+
+
 page{
   background: whitesmoke;
 }
@@ -182,9 +250,11 @@ page{
 
 /* 弹出框 */
 .pop-up-box{
+  top:1110rpx;
   position: absolute;
   height: 60rpx;
   border-radius: 10rpx;
-  right: 90rpx;
+  right: 60rpx;
   background: rgba(0, 0, 0, 0.7)
+  
 }

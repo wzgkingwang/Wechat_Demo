@@ -1,2 +1,6 @@
-<!--pages/logs/logs.wxml-->
-<text>pages/logs/logs.wxml</text>
+<!--logs.wxml-->
+<view class="container log-list">
+  <block >
+    <text class="log-item">点我也没有惊喜</text>
+  </block>
+</view>

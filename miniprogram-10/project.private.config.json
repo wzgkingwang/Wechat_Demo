@@ -19,14 +19,26 @@
           "scene": null
         },
         {
-          "name": "reg",
-          "pathName": "pages/reg/reg",
+          "name": "index",
+          "pathName": "pages/index/index",
           "query": "",
           "scene": null
         },
         {
           "name": "pages/CircleFriends/CircleFriends",
           "pathName": "pages/CircleFriends/CircleFriends",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "demo",
+          "pathName": "pages/demo_1/demo_1",
           "query": "",
           "scene": null
         }

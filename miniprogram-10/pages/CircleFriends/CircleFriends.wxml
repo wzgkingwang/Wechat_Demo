@@ -1,4 +1,16 @@
-
+<!--pages/t_demo/t_demo.wxml-->
+<view class="title">
+  <!-- 背景图片-->
+  <image class="backgroung_p" src="http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg"/>
+  <!-- 个性签名 -->
+  <view class="box3">
+    <text class="my_text">个性签名</text>
+  </view>
+  <!-- 头像 -->
+  <image class="img" src="/images/wechat—tie.png" />
+  <!-- 微信名 -->
+  <text class="Wechat_name" >匿名</text>
+</view>
 
 <view>
 <!-- 仿微信朋友圈 -->
@@ -66,7 +78,7 @@
 </scroll-view>
 
 <!-- 评论按钮弹出框 -->
-<view animation="{{animation}}" class='pop-up-box' style='top:{{popTop}}px;width: {{popWidth}}px;'>
+<view animation="{{animation}}" class='pop-up-box'>
 
 </view>
 </view>
