@@ -5,13 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    circlePictureArr: [], //数组转字符串存放到数据库，然后展示时将字符串再转为数组展示
+    Ctext: '',
+    Cvideo: '',
+    Ctime: '',
+    Caddress: ''
   },
 
   //图片选择
-  img_tpic(){
-    wx.navigateTo({
-      url: '../logs/logs',
+  img_tpic() {
+    let that = this
+    wx.chooseImage({
+      count: 9,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths);
+        that.setData({
+          circlePictureArr: tempFilePaths
+        })
+      }
     })
   },
 

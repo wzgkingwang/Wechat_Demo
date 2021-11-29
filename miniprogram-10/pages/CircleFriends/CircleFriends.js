@@ -38,20 +38,31 @@ Page({
 
     popTop: 0, //弹出点赞评论框的位置
     popWidth: 0, //弹出框宽度
-    isShow: true, //判断是否显示弹出框
+    isShow: false, //判断是否显示弹出框
+    bgUrl: 'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
   },
 
   // 发表跳转 发布页面
-  release_r(){
+  release_r() {
     wx.navigateTo({
       url: '../release/release',
     })
   },
 
   // 修改背景
-  changce_pic(){
-    wx.navigateTo({
-      url: '../logs/logs',
+  changce_pic() {
+    let that = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        that.setData({
+          bgUrl: tempFilePaths
+        })
+      }
     })
   },
 
@@ -103,42 +114,8 @@ Page({
 
   // 点击了点赞评论
   TouchDiscuss: function (e) {
-    // this.data.isShow = !this.data.isShow
-    // 动画
-    var animation = wx.createAnimation({
-      duration: 300,
-      timingFunction: 'linear',
-      delay: 0,
+    that.setData({
+      isShow: !this.data.isShow
     })
-
-    if (that.data.isShow == false) {
-      that.setData({
-        popTop: e.target.offsetTop - (e.detail.y - e.target.offsetTop) / 2,
-        popWidth: 0,
-        isShow: true
-      })
-
-      // 0.3秒后滑动
-      setTimeout(function () {
-        animation.width(0).opacity(1).step()
-        that.setData({
-          animation: animation.export(),
-        })
-      }, 100)
-    } else {
-      // 0.3秒后滑动
-      setTimeout(function () {
-        animation.width(120).opacity(1).step()
-        that.setData({
-          animation: animation.export(),
-        })
-      }, 100)
-
-      that.setData({
-        popTop: e.target.offsetTop - (e.detail.y - e.target.offsetTop) / 2,
-        popWidth: 0,
-        isShow: false
-      })
-    }
   }
 })
