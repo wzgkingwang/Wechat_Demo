@@ -11,7 +11,7 @@
   </view>
   <!-- 头像 -->
   <view>
-    <image class="img" bindtap="release_r" src="/images/wechat—tie.png" />
+    <image style="position: relative; left: 590rpx; top: -132rpx"  class="img" bindtap="release_r" src="/images/wechat—tie.png" />
   </view>
   <!-- 微信名 -->
   <view>
@@ -52,17 +52,18 @@
             <label>长沙市</label>
           </view>
 
-          <!-- 时间、删除按钮、点赞评论按钮 -->
+          <!-- 时间 -->
           <view class='TDD-view'>
             <label
               style="width: 268rpx; height: 40rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">2018-07-25
               10:14:23</label>
 
-            <image data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
-            <view wx:if="{{isShow}}">
-              <view bindtap='delete'>删除</view>
-              <view>点赞</view>
-              <view>评论</view>
+            <image class="img_rel" data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
+            <!-- 删除按钮、点赞评论 -->
+            <view wx:if="{{isShow}}" class="pinglun">
+              <view bindtap='delete' class="delete_rel">删除</view>
+              <view class="zan_rel">点赞</view>
+              <view class="pinglun_rel">评论</view>
 
             </view>
           </view>
