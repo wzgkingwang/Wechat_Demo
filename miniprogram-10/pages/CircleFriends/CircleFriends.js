@@ -10,8 +10,7 @@ Page({
     DataSource: [1, 1, 1, 1, 1],
     icon: 'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
     content: '我大学毕业到一家集团公司的办公室当文员。办公室主任有一特长，即文章写得好，很有思想，公司董事长很器重他，董事长的讲话稿和企业的年终总结等一系列重大文章都是出自他的手笔。',
-    resource:
-     ['http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
+    resource: ['http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
       'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
       'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
       'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
@@ -45,11 +44,27 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     that = this
   },
   // 点击图片进行大图查看
-  LookPhoto: function(e) {
+  LookPhoto: function (e) {
+    // 服务器请求
+    wx.request({
+      url: 'http://localhost:7001/api/comment',
+      method: 'GET',
+      data: {
+        skip: 2,
+        limit: 5
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+      }
+    })
+
     wx.previewImage({
       current: e.currentTarget.dataset.photurl,
       urls: this.data.resource,
@@ -57,7 +72,7 @@ Page({
   },
 
   // 点击点赞的人
-  TouchZanUser: function(e) {
+  TouchZanUser: function (e) {
     wx.showModal({
       title: e.currentTarget.dataset.name,
       showCancel: false
@@ -65,14 +80,14 @@ Page({
   },
 
   // 删除朋友圈
-  delete: function() {
+  delete: function () {
     wx.showToast({
       title: '删除成功',
     })
   },
 
   // 点击了点赞评论
-  TouchDiscuss: function(e) {
+  TouchDiscuss: function (e) {
     // this.data.isShow = !this.data.isShow
     // 动画
     var animation = wx.createAnimation({
@@ -89,7 +104,7 @@ Page({
       })
 
       // 0.3秒后滑动
-      setTimeout(function() {
+      setTimeout(function () {
         animation.width(0).opacity(1).step()
         that.setData({
           animation: animation.export(),
@@ -97,7 +112,7 @@ Page({
       }, 100)
     } else {
       // 0.3秒后滑动
-      setTimeout(function() {
+      setTimeout(function () {
         animation.width(120).opacity(1).step()
         that.setData({
           animation: animation.export(),
