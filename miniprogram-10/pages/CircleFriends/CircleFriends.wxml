@@ -56,11 +56,11 @@
           <image data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
         </view>
 
-        <!-- 点赞 -->
-        <view class='zan-view'>
-          <view class='trigon-view'>
-            <image mode='aspectFill' class='trigon' src='/images/trigon.png'></image>
-          </view>
+					<!-- 点赞 -->
+					<view class='zan-view'>
+						<view class='trigon-view'>
+							<image mode='aspectFill' class='trigon' src='/images/trigon.png'></image>
+						</view>
 
           <!-- 点赞 -->
           <view class='zan-bg-view'>
@@ -80,12 +80,12 @@
         </view>
       </view>
 
-    </view>
-  </view>
-</scroll-view>
+			</view>
+		</view>
+	</scroll-view>
 
-<!-- 评论按钮弹出框 -->
-<view animation="{{animation}}" class='pop-up-box'>
+	<!-- 评论按钮弹出框 -->
+	<view animation="{{animation}}" class='pop-up-box'>
 
-</view>
+	</view>
 </view>
