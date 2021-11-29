@@ -1,4 +1,4 @@
-// pages/about/about.js
+// pages/release/release.js
 Page({
 
   /**
@@ -14,13 +14,6 @@ Page({
   onLoad: function (options) {
 
   },
-
-    show:function(){
-      wx.showToast({
-        title: '佳权大撒比',
-      })
-    },
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -8,6 +8,14 @@ Page({
 
   },
 
+  // 背景图片
+  goToPage1: function () {
+    wx.navigateTo({
+      url: '../release/release',
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */

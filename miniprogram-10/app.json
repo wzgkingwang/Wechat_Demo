@@ -2,8 +2,9 @@
   "pages": [
     "pages/CircleFriends/CircleFriends",
     "pages/index/index",
-    "pages/about/about",
-    "pages/demo_1/demo_1"
+    "pages/demo_1/demo_1",
+    "pages/release/release",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "dark",

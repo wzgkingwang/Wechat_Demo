@@ -1,3 +1,4 @@
+/* 顶部 */
 .title{
   width: 750rpx; 
   height: 368rpx; 
@@ -6,7 +7,7 @@
   left: NaNrpx; 
   top: NaNrpx
 }
-
+/* 背景图片 */
 .backgroung_p{
   background-color: aqua;
   width: 100%;
@@ -40,8 +41,8 @@
 /* 微信名 */
 .Wechat_name{
   position: relative; 
-  left: 384rpx; 
-  top: -207rpx;
+  left: 510rpx; 
+  top: -250rpx;
   width: 104rpx; 
   height: 48rpx; 
   display: inline-block; 
@@ -62,7 +63,6 @@
   box-sizing: border-box;
   border-radius:10%;
 }
-
 
 
 

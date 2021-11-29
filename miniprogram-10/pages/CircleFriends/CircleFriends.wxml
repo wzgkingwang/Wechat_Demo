@@ -1,22 +1,28 @@
 <!--pages/t_demo/t_demo.wxml-->
 <view class="title">
   <!-- 背景图片-->
-  <image class="backgroung_p" src="http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg"/>
+  <view>
+    <image class="backgroung_p" src="http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg"/>
+  </view>
   <!-- 个性签名 -->
   <view class="box3">
-    <text class="my_text">个性签名</text>
+    <text class="my_text">你曾少年</text>
   </view>
   <!-- 头像 -->
+<view >
   <image class="img" src="/images/wechat—tie.png" />
+</view>
   <!-- 微信名 -->
-  <text class="Wechat_name" >匿名</text>
+  <view>
+  <text class="Wechat_name" style="">匿名</text>
+  </view>
 </view>
 
 <view>
 <!-- 仿微信朋友圈 -->
 <scroll-view class='page'>
   <!-- 列表 -->
-  <view class='CircleList' wx:for='{{DataSource}}'>
+  <view class='CircleList' wx:key='index'  wx:for='{{DataSource}}'>
     <!-- 头像、昵称、内容 -->
     <view class='body-view'>
       <!-- 头像 -->
@@ -34,7 +40,7 @@
         </view>
         <!-- 图片 -->
         <view class='photo-view'>
-          <view class='photo' wx:for='{{resource}}' style='width:{{photoWidth}}px;height:{{photoWidth}}px'>
+          <view class='photo' wx:key='index'  wx:for='{{resource}}' style='width:{{photoWidth}}px;height:{{photoWidth}}px'>
             <image bindtap='LookPhoto' data-photUrl='{{item}}' src='{{item}}' style='width:{{photoWidth}}px;height:{{photoWidth}}px'></image>
           </view>
         </view>
@@ -45,8 +51,8 @@
 
         <!-- 时间、删除按钮、点赞评论按钮 -->
         <view class='TDD-view'>
-          <label>2018-07-25 10:14:23</label>
-          <button bindtap='delete'>删除</button>
+          <label style="width: 268rpx; height: 40rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">2018-07-25 10:14:23</label>
+          <button bindtap='delete' style="width: 174rpx; height: 68rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">删除</button>
           <image data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
         </view>
 
@@ -58,14 +64,15 @@
 
           <!-- 点赞 -->
           <view class='zan-bg-view'>
-            <view class='zan-user-view' wx:for='{{zanSource}}'>
+          <!-- wx:key，复用dom节点，提高渲染效率 -->
+            <view class='zan-user-view' wx:key='index'  wx:for='{{zanSource}}'>
               <label bindtap='TouchZanUser' data-name='{{item}}' class='zan-user'>{{item}},</label>
             </view>
           </view>
           <view class='line'></view>
           <!-- 评论 -->
           <view class='discuss-view'>
-            <view class='discuss' wx:for='{{contnet}}'>
+            <view class='discuss' wx:key='index' wx:for='{{contnet}}'>
               <label bindtap='TouchZanUser' data-name='{{item.firstname}}' class='discuss-user'>{{item.firstname}}：</label>
               <label class='content'>{{item.content}}</label>
             </view>
