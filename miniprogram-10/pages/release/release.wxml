@@ -1,2 +1,18 @@
-<!--pages/release/release.wxml-->
-<text>pages/release/release.wxml</text>
+<view class="background_color"
+  style="display: block; width: 750rpx; min-height: 100px; height: 528rpx; box-sizing: border-box; left: 0rpx; top: 0rpx">
+  <!-- 输入文字 -->
+    <input type="text" placeholder="这一刻心情"></input>
+  <!-- 选择图片 -->
+    <image class="img_pic" src="../../images/plus.png" bindtap="img_tpic"/>
+
+  <view class="button_vandm">
+  <!-- 选择视频 -->
+    <button  style="width: 100%; display: block; box-sizing: border-box; left: -1rpx; top: 265rpx; position: relative;margin-top:10rpx">选择视频</button>
+  <!-- 定位 -->
+    <button class="addis" style="width: 100%; display: block; box-sizing: border-box; left: -1rpx; top: 264rpx; position: relative;margin-top:10rpx">定位</button>
+  </view>
+
+  <!-- 提交 -->
+    <button form-type="submit" style="width: 100%; display: block; box-sizing: border-box; left: 1rpx; top: 258rpx; position: relative;margin-top:20rpx">提交</button>
+  </view>
+

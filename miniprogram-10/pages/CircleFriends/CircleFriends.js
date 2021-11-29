@@ -41,6 +41,21 @@ Page({
     isShow: true, //判断是否显示弹出框
   },
 
+  // 发表跳转 发布页面
+  release_r(){
+    wx.navigateTo({
+      url: '../release/release',
+    })
+  },
+
+  // 修改背景
+  changce_pic(){
+    wx.navigateTo({
+      url: '../logs/logs',
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
