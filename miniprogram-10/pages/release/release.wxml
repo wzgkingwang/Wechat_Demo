@@ -1,16 +1,23 @@
 <view class="background_color"
   style="display: block; width: 750rpx; min-height: 100px; height: 528rpx; box-sizing: border-box; left: 0rpx; top: 0rpx">
   <!-- 输入文字 -->
-    <input type="text" placeholder="这一刻心情"></input>
+  <input type="text" placeholder="这一刻心情" confirm-type="search" bindinput="getValue" value="{{Ctext}}"></input>
   <!-- 选择图片 -->
-    <image class="img_pic" src="../../images/plus.png" bindtap="img_tpic"/>
+  <image class="img_pic" src="../../images/plus.png" bindtap="img_tpic" />
+  <view class="position">{{Caddress}}</view>
 
   <view class="button_vandm">
-  <!-- 选择视频 -->
-    <button  style="width: 100%; display: block; box-sizing: border-box; left: -1rpx; top: 265rpx; position: relative;margin-top:10rpx">选择视频</button>
+    <!-- 选择视频 -->
+    <button style="width: 100%; display: block; box-sizing: border-box; left: -1rpx; top: 265rpx; position: relative;"
+      bindtap="getvideoPath">选择视频</button>
   </view>
-
+  <!-- 区域1：地区选择器 -->
+  <picker mode="region" bindchange="regionChange">
+    <button
+      style="width: 100%; display: block; box-sizing: border-box; left: -1rpx; top: 265rpx; position: relative;margin-top:10rpx">定位</button>
+  </picker>
   <!-- 提交 -->
-    <button form-type="submit" style="width: 100%; display: block; box-sizing: border-box; left: 1rpx; top: 258rpx; position: relative;margin-top:20rpx">提交</button>
-  </view>
-
+  <button form-type="submit"
+    style="width: 100%; display: block; box-sizing: border-box; left: 1rpx; top: 258rpx; position: relative;margin-top:20rpx"
+    bindtap="submitContent">提交</button>
+</view>

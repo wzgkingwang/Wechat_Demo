@@ -9,8 +9,7 @@ const router = new Router({
 // 添加文章
 router.post("/", async (ctx) => {
     ctx.body = (getResult('博客提交成功'))
-    // console.log(ctx.request.body);
-    await articles.addArticles(ctx.request.body['Ctime'], ctx.request.body['Ctext'], ctx.request.body['Cpicture'], ctx.request.body['Cvideo'], ctx.request.body['Caddress']);
+    await articles.addArticles(ctx.request.body.Ctime, ctx.request.body.Ctext, ctx.request.body.Cpicture, ctx.request.body.Cvideo, ctx.request.body.Caddress);
 });
 
 // 删除文章

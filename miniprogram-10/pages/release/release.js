@@ -8,8 +8,7 @@ Page({
     circlePictureArr: [], //数组转字符串存放到数据库，然后展示时将字符串再转为数组展示
     Ctext: '',
     Cvideo: '',
-    Ctime: '',
-    Caddress: ''
+    Caddress: ["北京市", "北京市", "东城区"]
   },
 
   //图片选择
@@ -22,7 +21,6 @@ Page({
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths);
         that.setData({
           circlePictureArr: tempFilePaths
         })
@@ -30,59 +28,64 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  // 文本输入
+  getValue(e) {
+    this.setData({
+      Ctext: e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 视频选择
+  getvideoPath() {
+    let that = this
+    wx.chooseVideo({
+      sourceType: ['album', 'camera'],
+      maxDuration: 60,
+      camera: 'back',
+      success(res) {
+        that.setData({
+          Cvideo: res.tempFilePath
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 更新省,市,区信息
+  regionChange: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      Caddress: e.detail.value
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  // 提交
+  submitContent() {
+    let d=new Date()
+    let Ctime =  `${d.getFullYear()}-${d.getMonth()}-${d.getDate()-1} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
 
+    let that = this
+    let cp = that.data.circlePictureArr.join(',')
+    console.log(cp);
+    // 服务器请求
+    wx.request({
+      url: 'http://localhost:7001/api/comment',
+      method: 'POST',
+      data: {
+        Ctime,
+        Cpicture: cp,
+        Ctext: that.data.Ctext,
+        Cvideo: that.data.Cvideo,
+        Caddress: that.data.Caddress.join(',')
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+        wx.navigateBack({
+          delta: 1,
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
