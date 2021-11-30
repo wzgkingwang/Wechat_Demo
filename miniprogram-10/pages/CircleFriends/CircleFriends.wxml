@@ -33,19 +33,18 @@
         </view>
         <view class='right-view'>
           <!-- 昵称 -->
-          <view class='user-name-view'>
+          <view class='user-name-view' bindtap="turn_detailed" data-id="{{item.id}}">
             <label class='user-name'>{{userInfo.nickName}}</label>
           </view>
           <!-- 内容 -->
-          <view class='user-content-view' bindtap="turn_detailed">
-        
+          <view class='user-content-view' bindtap="turn_detailed" data-id="{{item.id}}">
             <text class='user-content'>{{item.Ctext}}</text>
           </view>
           <!-- 图片 -->
           <view class='photo-view'>
             <view class='photo' wx:for-item="pItem" wx:for-index='i' wx:key='i' wx:for="{{item.Cpicture}}"
               style='width:{{photoWidth}}px;height:{{photoWidth}}px'>
-              <image bindtap='LookPhoto' data-photUrl='{{pItem}}' src='{{pItem}}'
+              <image bindtap='LookPhoto' data-resouce='{{item.Cpicture}}' data-photUrl='{{pItem}}' src='{{pItem}}'
                 style='width:{{photoWidth}}px;height:{{photoWidth}}px'></image>
             </view>
           </view>
@@ -57,9 +56,11 @@
           <!-- 时间 -->
           <view class='TDD-view'>
             <label
-              style="width: 268rpx; height: 40rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{item.Ctime}}</label>
+              style="width: 268rpx; height: 40rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx"
+              bindtap="turn_detailed" data-id="{{item.id}}">{{item.Ctime}}</label>
 
-            <image class="img_rel" data-id="{{item.Ctime}}" data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
+            <image class="img_rel" data-id="{{item.Ctime}}" data-isShow='{{isShow}}' bindtap='TouchDiscuss'
+              src='/images/wxdiscuss.png'></image>
             <!-- 删除按钮、点赞评论 -->
             <view wx:if="{{isShow && item.Ctime===idShow}}" class="pinglun">
               <view bindtap='delete' data-id="{{item.id}}" class="delete_rel">删除</view>
