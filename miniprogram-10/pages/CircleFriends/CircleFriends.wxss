@@ -1,52 +1,53 @@
 /* 顶部 */
-.title{
-  width: 750rpx; 
-  height: 368rpx; 
-  display: block; 
-  box-sizing: border-box; 
-  left: NaNrpx; 
+.title {
+  width: 750rpx;
+  height: 368rpx;
+  display: block;
+  box-sizing: border-box;
+  left: NaNrpx;
   top: NaNrpx
 }
+
 /* 背景图片 */
-.backgroung_pic{
+.backgroung_pic {
   /* background-color: aqua; */
   width: 100%;
   height: 300rpx;
-  margin-top:0;
+  margin-top: 0;
   display: flex;
 }
 
 
 /* 个性签名 盒子 */
-.box3{
-  background-color:white;
-  width: 750rpx; 
+.box3 {
+  background-color: white;
+  width: 750rpx;
   height: 72rpx;
-  display: flex; 
+  display: flex;
   box-sizing: border-box;
-  left: NaNrpx; 
+  left: NaNrpx;
   top: NaNrpx
 }
 
 /* 个性签名 */
-.my_text{
+.my_text {
   position: relative;
-   left: 60%; 
-   top: 10rpx; 
-   width: 186rpx; 
-   height: 52rpx; 
-   display: block; 
-   box-sizing: border-box
+  left: 60%;
+  top: 10rpx;
+  width: 186rpx;
+  height: 52rpx;
+  display: block;
+  box-sizing: border-box
 }
 
 /* 微信名 */
-.Wechat_name{
-  position: relative; 
-  left: 510rpx; 
+.Wechat_name {
+  position: relative;
+  left: 510rpx;
   top: -250rpx;
-  width: 104rpx; 
-  height: 48rpx; 
-  display: inline-block; 
+  width: 104rpx;
+  height: 48rpx;
+  display: inline-block;
   box-sizing: border-box
 }
 
@@ -54,64 +55,64 @@
 
 
 /* 头像 */
-.img{
-  position: relative; 
+.img {
+  position: relative;
   left: 591rpx;
   top: -146rpx;
-  width: 128rpx; 
-  height: 120rpx; 
-  display: inline-block; 
+  width: 128rpx;
+  height: 120rpx;
+  display: inline-block;
   box-sizing: border-box;
-  border-radius:10%;
+  border-radius: 10%;
 }
 
 
 
 
-page{
+page {
   background: whitesmoke;
 }
 
-.page{
+.page {
   width: 100%;
   /* overflow-x: hidden */
 }
 
 /* 列表 */
-.CircleList{
+.CircleList {
   background: white;
   margin-bottom: 1px;
   border-bottom: 1px solid whitesmoke;
   border-top: 1px solid whitesmoke;
 }
 
-.body-view{
+.body-view {
   display: flex;
 }
 
-.left-view{
+.left-view {
   width: 150rpx;
   /* background: rebeccapurple; */
 }
 
-.right-view{
-  background:white;
+.right-view {
+  background: white;
 }
 
 /* 头像 */
-.user-icon{
+.user-icon {
   /* display: flex; */
-  width:100rpx;
+  width: 100rpx;
   height: 100rpx;
   margin-left: 20rpx;
   margin-top: 30rpx;
   margin-right: 20rpx;
-  border:1rpx solid rgba(0, 0, 0, 0.37);
+  border: 1rpx solid rgba(0, 0, 0, 0.37);
   border-radius: 10%;
 }
 
 /* 昵称 */
-.user-name{
+.user-name {
   display: flex;
   height: 50rpx;
   line-height: 50rpx;
@@ -122,7 +123,7 @@ page{
 }
 
 /* 内容 */
-.user-content{
+.user-content {
   display: flex;
   font-size: 18px;
   line-height: 50rpx;
@@ -130,86 +131,74 @@ page{
 }
 
 /* 图片 */
-.photo-view{
+.photo-view {
   background: rebeccapurple;
   margin-left: 10rpx;
   margin-bottom: 20rpx;
 }
-.photo{
-  background: rgb(255, 166, 0);  
+
+.photo {
+  background: rgb(255, 166, 0);
   float: left;
   margin-right: 10rpx;
   margin-top: 10rpx;
 }
 
 /* 地理位置 */
-.user-address-view{
+.user-address-view {
   display: flex;
   margin-top: 20rpx;
   width: 100%;
 }
-.user-address-view label{
+
+.user-address-view label {
   font-size: 12px;
   margin: 10rpx;
 }
 
 /* 时间、删除、点赞评论 */
-.TDD-view{
+.TDD-view {
   width: 100%;
   height: 60rpx;
   display: flex;
   align-items: center;
   background: white;
 }
-.TDD-view label{
+
+.TDD-view label {
   font-size: 13px;
   margin-left: 10rpx;
 }
-.TDD-view button{
+
+.TDD-view button {
   font-size: 13px;
   margin-left: 20rpx;
   color: black;
   background: white;
 }
-.TDD-view button::after{
+
+.TDD-view button::after {
   border: white;
 }
-.TDD-view image{
+
+.TDD-view image {
   width: 50rpx;
   height: 40rpx;
   margin-right: 20rpx;
 }
 
-.pinglun{
- display: flex;
-  
+.pinglun {
+  display: flex;
+  font-size: 24rpx;
+}
+.pinglun view {
+  padding-right: 20rpx;
 }
 /* 评论按钮图片 */
-.img_rel{
+.img_rel {
   position: absolute;
   left: 90%;
 }
-/* 删除按钮 */
-.delete_rel{
-  position: absolute;
-  left: 80%;
-  top: 750rpx;
-}
-/* 点赞按钮 */
-.zan_rel{
-  position: absolute;
-  left: 70%;
-  top: 750rpx;
-}
-/* 评论按钮 */
-.pinglun_rel{
-  position: absolute;
-  left: 60%;
-  top: 750rpx;
-
-}
-
-
 
 /* 点赞 */
 .zan-view {
@@ -217,18 +206,21 @@ page{
   background: white;
   margin-bottom: 20rpx;
 }
-.trigon-view{
+
+.trigon-view {
   /* height: 20rpx; */
   margin-bottom: -15rpx;
 }
-.trigon{
+
+.trigon {
   display: flex;
   width: 40rpx;
   height: 20rpx;
   margin-top: 10rpx;
   margin-left: 10rpx;
 }
-.zan-bg-view{
+
+.zan-bg-view {
   display: inline-block;
   width: 70vw;
   background: rgb(235, 235, 235);
@@ -237,7 +229,8 @@ page{
   border-top-left-radius: 7rpx;
   border-top-right-radius: 7rpx;
 }
-.zan-user-view{
+
+.zan-user-view {
   display: flex;
   float: left;
   height: 40rpx;
@@ -245,50 +238,50 @@ page{
   /* margin-top: 5rpx; */
   align-content: center;
 }
-.zan-user{
+
+.zan-user {
   font-size: 12px;
   line-height: 40rpx;
   height: 40rpx;
   color: rgb(88, 103, 138);
 }
 
-.line{
+.line {
   width: 97%;
   height: 1px;
   background: white;
 }
 
 /* 评论 */
-.discuss-view{
+.discuss-view {
   background: white;
   width: 70vw;
 }
 
-.discuss{
+.discuss {
   background: rgb(235, 235, 235);
   line-height: 35rpx;
 }
 
-.discuss label{
+.discuss label {
   font-size: 12px;
 }
 
-.discuss-user{
+.discuss-user {
   color: rgb(88, 103, 138);
   margin-left: 10rpx;
 }
 
-.content{
+.content {
   margin-left: 10rpx;
 }
 
 /* 弹出框 */
-.pop-up-box{
-  top:1110rpx;
+.pop-up-box {
+  top: 1110rpx;
   position: absolute;
   height: 60rpx;
   border-radius: 10rpx;
   right: 60rpx;
   background: rgba(0, 0, 0, 0.7)
-  
 }
