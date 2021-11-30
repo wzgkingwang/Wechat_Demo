@@ -52,7 +52,6 @@ Page({
 
   // 更新省,市,区信息
   regionChange: function (e) {
-    console.log(e.detail.value);
     this.setData({
       Caddress: e.detail.value
     });
@@ -65,7 +64,6 @@ Page({
 
     let that = this
     let cp = that.data.circlePictureArr.join(',')
-    console.log(cp);
     // 服务器请求
     wx.request({
       url: 'http://localhost:7001/api/comment',
@@ -81,7 +79,6 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data)
         wx.navigateBack({
           delta: 1,
         })

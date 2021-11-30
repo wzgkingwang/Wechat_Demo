@@ -181,7 +181,7 @@ page{
 }
 
 .pinglun{
-  /* position: relative; */
+ display: flex;
   
 }
 /* 评论按钮图片 */
