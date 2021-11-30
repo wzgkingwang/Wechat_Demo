@@ -9,29 +9,29 @@ Page({
   data: {
     DataSource: [1, 1, 1, 1, 1],
     icon: 'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
-    content: '我大学毕业到一家集团公司的办公室当文员。办公室主任有一特长，即文章写得好，很有思想，公司董事长很器重他，董事长的讲话稿和企业的年终总结等一系列重大文章都是出自他的手笔。',
+    content: '最初的鸟儿是不会飞翔的，飞翔是它们勇敢跃入峡谷的奖励。',
     resource: ['http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
       'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
       'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
       'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
       'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg'
     ],
-    zanSource: ['张三', '李四', '王五', '找钱', '孙俪', '王宝'],
+    zanSource: ['张三', '李四', '王五', '赵六', '孙七', '周八'],
     contnet: [{
         'firstname': '张三',
-        'content': '你好漂亮呀！！'
+        'content': '确实！！'
       },
       {
         'firstname': '李四',
-        'content': '纳尼！！'
+        'content': '俺也一样！！'
       },
       {
         'firstname': '王五',
-        'content': '鬼扯咧'
+        'content': '这话确实说的很这话！！'
       },
       {
-        'firstname': '王宝',
-        'content': '昨晚11点左右，一则郑爽胡彦斌疑似复合的消息刷爆各大论坛，微博在深夜11点热度高达200万直接爆掉，中国意难忘又开始了！！！'
+        'firstname': '周八',
+        'content': '听君一席话，如听一席话！！'
       }
     ],
     photoWidth: wx.getSystemInfoSync().windowWidth / 5,

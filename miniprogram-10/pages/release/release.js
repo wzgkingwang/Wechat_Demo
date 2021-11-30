@@ -8,7 +8,7 @@ Page({
     circlePictureArr: [], //数组转字符串存放到数据库，然后展示时将字符串再转为数组展示
     Ctext: '',
     Cvideo: '',
-    Caddress: ["北京市", "北京市", "东城区"]
+    Caddress: ["广东省", "东莞市", "寮步镇"]
   },
 
   //图片选择
