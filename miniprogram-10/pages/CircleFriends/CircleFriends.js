@@ -109,7 +109,7 @@ Page({
 
         let dataList = res.data.data.arr;
         dataList.forEach((item) => {
-          if (item.Cpicture.length === 0) {
+          if (item.Cpicture === ''||item.Cpicture===null) {
             item.Cpicture = []
           } else {
             item.Cpicture = item.Cpicture.split(',')
