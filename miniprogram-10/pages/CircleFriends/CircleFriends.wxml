@@ -38,7 +38,7 @@
           </view>
           <!-- 内容 -->
           <view class='user-content-view' bindtap="turn_detailed">
-            <!-- <view class='user-content-view' bindtap="goDetails" data-id="{{item.Ctime}}"> -->
+        
             <text class='user-content'>{{item.Ctext}}</text>
           </view>
           <!-- 图片 -->
