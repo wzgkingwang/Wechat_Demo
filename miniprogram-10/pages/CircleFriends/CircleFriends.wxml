@@ -6,8 +6,10 @@
   </view>
   <!-- 个性签名、发布-->
   <view class="box3">
-    <text class="my_text">你曾少年</text>
-    <!-- <button bindtap="release_r" style="position: relative; left: -288rpx; top: -1rpx">发布</button> -->
+    <image style="position: relative; left: 610rpx; top: -306rpx; width: 98rpx; height: 80rpx; display: block; box-sizing: border-box" bindtap="release_r"
+      src="/images/xiangji.png" />
+    <!-- <text class="my_text"></text> -->
+    <!-- <image bindtap="release_r" style="position: relative; left: -288rpx; top: -1rpx">发布</button> -->
   </view>
   <!-- 头像、发布 -->
   <view>
@@ -61,7 +63,7 @@
 
             <image class="img_rel" data-id="{{item.Ctime}}" data-isShow='{{isShow}}' bindtap='TouchDiscuss'
               src='/images/wxdiscuss.png'></image>
-            <!-- 删除按钮、点赞评论 -->
+            <!-- 删除按钮、点赞评论、时间 -->
             <view wx:if="{{isShow && item.Ctime===idShow}}" class="pinglun">
               <view bindtap='delete' data-id="{{item.id}}" class="delete_rel">删除</view>
               <view class="zan_rel">点赞</view>

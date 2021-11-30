@@ -1,9 +1,7 @@
 {
   "pages": [
     "pages/CircleFriends/CircleFriends",
-    
     "pages/index/index",
-    "pages/demo_1/demo_1",
     "pages/release/release",
     "pages/logs/logs",
     "pages/detailed/detailed"
@@ -25,7 +23,7 @@
       {
         "pagePath": "pages/CircleFriends/CircleFriends",
         "text": "首页",
-        "iconPath": "/images/icon_2.png",
+        "iconPath": "/images/icon_API.png",
         "selectedIconPath": "/images/icon_11.png"
       },
       {
