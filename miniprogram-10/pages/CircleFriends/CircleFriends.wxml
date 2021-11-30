@@ -58,13 +58,12 @@
             <label
               style="width: 268rpx; height: 40rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{item.Ctime}}</label>
 
-            <image class="img_rel" data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
+            <image class="img_rel" data-id="{{item.Ctime}}" data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
             <!-- 删除按钮、点赞评论 -->
-            <view wx:if="{{isShow}}" class="pinglun">
+            <view wx:if="{{isShow && item.Ctime===idShow}}" class="pinglun">
               <view bindtap='delete' class="delete_rel">删除</view>
               <view class="zan_rel">点赞</view>
               <view class="pinglun_rel">评论</view>
-
             </view>
           </view>
 

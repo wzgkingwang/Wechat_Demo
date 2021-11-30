@@ -1,6 +1,7 @@
 // pages/CircleFriends/CircleFriends.js
 var app = getApp()
 var that
+let count = 0
 let nowPage = 0
 Page({
   /**
@@ -33,6 +34,7 @@ Page({
     popWidth: 0, //弹出框宽度
     isShow: false, //判断是否显示弹出框
     bgUrl: 'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
+    idShow: ''
   },
 
   // 发表跳转 发布页面
@@ -75,7 +77,6 @@ Page({
     wx.getStorage({
       key: 'userInfo',
       success(res) {
-        console.log(res.data);
         that.setData({
           userInfo: res.data
         })
@@ -94,33 +95,35 @@ Page({
     })
   },
   getResouce(that) {
-    // 服务器请求
-    wx.request({
-      url: 'http://localhost:7001/api/comment',
-      method: 'GET',
-      data: {
-        skip: nowPage * 5,
-        limit: 5
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
+    if (nowPage * 5 <= count) {
+      // 服务器请求
+      wx.request({
+        url: 'http://localhost:7001/api/comment',
+        method: 'GET',
+        data: {
+          skip: nowPage * 5,
+          limit: 5
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success(res) {
+          let dataList = res.data.data.arr;
+          dataList.forEach((item) => {
+            if (item.Cpicture.length !== 0) {
+              item.Cpicture = item.Cpicture.split(',')
+            } else {
+              item.Cpicture = []
+            }
+          })
+          count = res.data.data.count[0]['count(id)']
+          that.setData({
+            DataSource: [...that.data.DataSource, ...dataList]
+          })
+        }
+      })
 
-        let dataList = res.data.data.arr;
-        dataList.forEach((item) => {
-          if (item.Cpicture === ''||item.Cpicture===null) {
-            item.Cpicture = []
-          } else {
-            item.Cpicture = item.Cpicture.split(',')
-          }
-        })
-        console.log(dataList);
-        that.setData({
-          DataSource: [...that.data.DataSource, ...dataList]
-        })
-      }
-    })
+    }
 
   },
   // 点击点赞的人
@@ -140,8 +143,9 @@ Page({
 
   // 点击了点赞评论
   TouchDiscuss: function (e) {
-    that.setData({
-      isShow: !this.data.isShow
+    this.setData({
+      isShow: !this.data.isShow,
+      idShow: e.currentTarget.dataset.id
     })
   }
 })
