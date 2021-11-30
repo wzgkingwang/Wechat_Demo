@@ -3,6 +3,7 @@ var app = getApp()
 var that
 let count = 0
 let nowPage = 0
+let id = -1
 Page({
   /**
    * 页面的初始数据
@@ -37,43 +38,16 @@ Page({
     idShow: ''
   },
 
-  // 发表跳转 发布页面
-  release_r() {
-    wx.navigateTo({
-      url: '../release/release',
-    })
-  },
-
-  //跳转详细页面
-  turn_detailed() {
-    wx.navigateTo({
-      url: '../detailed/detailed',
-    })
-  },
-
-  // 修改背景
-  changce_pic() {
-    let that = this
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success(res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        const tempFilePaths = res.tempFilePaths
-        that.setData({
-          bgUrl: tempFilePaths
-        })
-      }
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    id = options.id
     let that = this
+
     that.getResouce(that)
+
     wx.getStorage({
       key: 'userInfo',
       success(res) {
@@ -82,10 +56,6 @@ Page({
         })
       }
     })
-  },
-  onReachBottom: function () {
-    nowPage++
-    this.getResouce(this)
   },
   // 点击图片进行大图查看
   LookPhoto: function (e) {
@@ -117,8 +87,17 @@ Page({
             }
           })
           count = res.data.data.count[0]['count(id)']
+          let arr = [...that.data.DataSource, ...dataList];
+          let arrList = []
+          console.log(arr,id);
+          arr.forEach((item) => {
+            if (item.id+'' === id) {
+              arrList = [item]
+              return
+            }
+          })
           that.setData({
-            DataSource: [...that.data.DataSource, ...dataList]
+            DataSource: arrList
           })
         }
       })

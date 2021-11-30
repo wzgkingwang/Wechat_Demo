@@ -44,22 +44,11 @@ Page({
   },
 
   //跳转详细页面
-  turn_detailed() {
+  turn_detailed(e) {
     wx.navigateTo({
-      url: '../detailed/detailed',
+      url: `../detailed/detailed?id=${e.currentTarget.dataset.id}`,
     })
   },
-
-  // goDetails(event){
-  //   //携带id参数跳转
-  //   console.log(event.currentTarget.dataset.Ctime)
-  //   wx.navigateTo({
-  //     url: 'CirleFriends?id='+event.currentTarget.dataset.Ctime,
-  //   })
-  // },
-
-
-
 
   // 修改背景
   changce_pic() {
@@ -99,9 +88,10 @@ Page({
   },
   // 点击图片进行大图查看
   LookPhoto: function (e) {
+    console.log(e.currentTarget.dataset.photurl);
     wx.previewImage({
       current: e.currentTarget.dataset.photurl,
-      urls: this.data.resource,
+      urls: e.currentTarget.dataset.resouce,
     })
   },
   getResouce(that) {
