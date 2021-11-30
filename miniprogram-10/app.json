@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/demo_1/demo_1",
     "pages/release/release",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/detailed/detailed"
   ],
   "window": {
     "backgroundTextStyle": "dark",

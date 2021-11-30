@@ -49,6 +49,13 @@ Page({
     })
   },
 
+  //跳转详细页面
+  turn_detailed(){
+    wx.navigateTo({
+      url: '../detailed/detailed',
+    })
+  },
+
   // 修改背景
   changce_pic() {
     let that = this

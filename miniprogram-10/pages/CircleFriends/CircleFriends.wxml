@@ -9,7 +9,7 @@
     <text class="my_text">你曾少年</text>
     <!-- <button bindtap="release_r" style="position: relative; left: -288rpx; top: -1rpx">发布</button> -->
   </view>
-  <!-- 头像 -->
+  <!-- 头像、发布 -->
   <view>
     <image style="position: relative; left: 590rpx; top: -132rpx"  class="img" bindtap="release_r" src="/images/wechat—tie.png" />
   </view>
@@ -28,16 +28,16 @@
       <view class='body-view'>
         <!-- 头像 -->
         <view class='left-view'>
-          <image class='user-icon' src='{{icon}}'></image>
+          <image class='user-icon' src='../../images/wechat—tie.png'></image>
         </view>
-        <view class='right-view'>
+        <view class='right-view'  >
           <!-- 昵称 -->
           <view class='user-name-view'>
-            <label class='user-name'>宣志强</label>
+            <label class='user-name'>匿名</label>
           </view>
           <!-- 内容 -->
-          <view class='user-content-view'>
-            <text class='user-content'>{{content}}</text>
+          <view class='user-content-view' bindtap="turn_detailed">
+            <text class='user-content' >{{content}}</text>
           </view>
           <!-- 图片 -->
           <view class='photo-view'>
