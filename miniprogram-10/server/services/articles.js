@@ -15,7 +15,7 @@ exports.deleteArticles = async function (id) {
 // 获取文章,默认：跳过0条，只获取4条
 exports.getArticles = async function (skip = 0, limit = 4) {
     // console.log(skip, limit)
-    const sqlArr = `select * from comment order by id asc limit ?,?`;
+    const sqlArr = `select * from comment order by id desc limit ?,?`;
     // console.log(skip)
     let [arr] = await base.execute(sqlArr, [skip, limit]);
 

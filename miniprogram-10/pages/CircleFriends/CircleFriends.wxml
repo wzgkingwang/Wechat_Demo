@@ -11,11 +11,12 @@
   </view>
   <!-- 头像、发布 -->
   <view>
-    <image style="position: relative; left: 590rpx; top: -132rpx"  class="img" bindtap="release_r" src="/images/wechat—tie.png" />
+    <image style="position: relative; left: 590rpx; top: -132rpx" class="img" bindtap="release_r"
+      src="{{userInfo.avatarUrl}}" />
   </view>
   <!-- 微信名 -->
   <view>
-    <text class="Wechat_name" style="">匿名</text>
+    <text class="Wechat_name" style="">{{userInfo.nickName}}</text>
   </view>
 </view>
 
@@ -28,35 +29,34 @@
       <view class='body-view'>
         <!-- 头像 -->
         <view class='left-view'>
-          <image class='user-icon' src='../../images/wechat—tie.png'></image>
+          <image class='user-icon' src='{{userInfo.avatarUrl}}'></image>
         </view>
-        <view class='right-view'  >
+        <view class='right-view'>
           <!-- 昵称 -->
           <view class='user-name-view'>
-            <label class='user-name'>匿名</label>
+            <label class='user-name'>{{userInfo.nickName}}</label>
           </view>
           <!-- 内容 -->
           <view class='user-content-view' bindtap="turn_detailed">
-            <text class='user-content' >{{content}}</text>
+            <text class='user-content'>{{item.Ctext}}</text>
           </view>
           <!-- 图片 -->
           <view class='photo-view'>
-            <view class='photo' wx:key='index' wx:for='{{resource}}'
+            <view class='photo' wx:for-item="pItem" wx:for-index='i' wx:key='i' wx:for="{{item.Cpicture}}"
               style='width:{{photoWidth}}px;height:{{photoWidth}}px'>
-              <image bindtap='LookPhoto' data-photUrl='{{item}}' src='{{item}}'
+              <image bindtap='LookPhoto' data-photUrl='{{pItem}}' src='{{pItem}}'
                 style='width:{{photoWidth}}px;height:{{photoWidth}}px'></image>
             </view>
           </view>
           <!-- 地理位置 -->
           <view class='user-address-view'>
-            <label>长沙市</label>
+            <label>{{item.Caddress}}</label>
           </view>
 
           <!-- 时间 -->
           <view class='TDD-view'>
             <label
-              style="width: 268rpx; height: 40rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">2018-07-25
-              10:14:23</label>
+              style="width: 268rpx; height: 40rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{item.Ctime}}</label>
 
             <image class="img_rel" data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
             <!-- 删除按钮、点赞评论 -->

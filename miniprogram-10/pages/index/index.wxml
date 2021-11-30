@@ -1,23 +1,9 @@
-<!--index.wxml-->
-<view class="container back" style="width: 750rpx; height: 530rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap" style="width: 236rpx; height: 200rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="wrap" bindtap="getUserProfile">
+  <image class="touxiang" src="{{userInfo.avatarUrl?userInfo.avatarUrl:'../../images/logo.png'}}" mode="widthFix"></image>
+  <view>{{userInfo.nickName?userInfo.nickName:'游客'}}
   </view>
+  <view>
+    <text>{{userInfo.avatarUrl?'已登录':'未登录'}}</text>
+  </view>
+  <image src="{{My.gif}}" mode="scaleToFill"></image>
 </view>
-<text style="position: relative; left: 276rpx; top: 344rpx; font-size: 50rpx">欢迎回来</text>
-
-

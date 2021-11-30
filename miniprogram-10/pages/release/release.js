@@ -59,8 +59,8 @@ Page({
 
   // 提交
   submitContent() {
-    let d=new Date()
-    let Ctime =  `${d.getFullYear()}-${d.getMonth()}-${d.getDate()-1} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+    let d = new Date()
+    let Ctime = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
 
     let that = this
     let cp = that.data.circlePictureArr.join(',')
@@ -79,8 +79,9 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        wx.navigateBack({
-          delta: 1,
+        console.log(res.data)
+        wx.switchTab({
+          url: '../CircleFriends/CircleFriends'
         })
       }
     })
