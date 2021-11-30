@@ -60,12 +60,11 @@ Page({
 
   // 提交
   submitContent() {
-    let d=new Date()
-    let Ctime =  `${d.getFullYear()}-${d.getMonth()}-${d.getDate()-1} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+    let d = new Date()
+    let Ctime = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
 
     let that = this
     let cp = that.data.circlePictureArr.join(',')
-    console.log(cp);
     // 服务器请求
     wx.request({
       url: 'http://localhost:7001/api/comment',
@@ -82,8 +81,8 @@ Page({
       },
       success(res) {
         console.log(res.data)
-        wx.navigateBack({
-          delta: 1,
+        wx.switchTab({
+          url: '../CircleFriends/CircleFriends'
         })
       }
     })

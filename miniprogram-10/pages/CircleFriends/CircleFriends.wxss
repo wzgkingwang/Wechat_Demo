@@ -230,7 +230,7 @@ page{
 }
 .zan-bg-view{
   display: inline-block;
-  width: 97%;
+  width: 70vw;
   background: rgb(235, 235, 235);
   margin-right: 20rpx;
   margin-bottom: -11rpx;
@@ -261,7 +261,7 @@ page{
 /* 评论 */
 .discuss-view{
   background: white;
-  width: 97%;
+  width: 70vw;
 }
 
 .discuss{

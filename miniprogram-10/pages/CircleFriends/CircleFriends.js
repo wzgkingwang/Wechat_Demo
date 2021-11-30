@@ -1,21 +1,14 @@
 // pages/CircleFriends/CircleFriends.js
 var app = getApp()
 var that
-
+let nowPage = 0
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    DataSource: [1, 1, 1, 1, 1],
-    icon: 'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
-    content: '最初的鸟儿是不会飞翔的，飞翔是它们勇敢跃入峡谷的奖励。',
-    resource: ['http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
-      'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
-      'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
-      'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
-      'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg'
-    ],
+    userInfo: {},
+    DataSource: [],
     zanSource: ['张三', '李四', '王五', '赵六', '孙七', '周八'],
     contnet: [{
         'firstname': '张三',
@@ -50,7 +43,7 @@ Page({
   },
 
   //跳转详细页面
-  turn_detailed(){
+  turn_detailed() {
     wx.navigateTo({
       url: '../detailed/detailed',
     })
@@ -73,37 +66,63 @@ Page({
     })
   },
 
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    that = this
+    let that = this
+    that.getResouce(that)
+    wx.getStorage({
+      key: 'userInfo',
+      success(res) {
+        console.log(res.data);
+        that.setData({
+          userInfo: res.data
+        })
+      }
+    })
+  },
+  onReachBottom: function () {
+    nowPage++
+    this.getResouce(this)
   },
   // 点击图片进行大图查看
   LookPhoto: function (e) {
+    wx.previewImage({
+      current: e.currentTarget.dataset.photurl,
+      urls: this.data.resource,
+    })
+  },
+  getResouce(that) {
     // 服务器请求
     wx.request({
       url: 'http://localhost:7001/api/comment',
       method: 'GET',
       data: {
-        skip: 2,
+        skip: nowPage * 5,
         limit: 5
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data)
+
+        let dataList = res.data.data.arr;
+        dataList.forEach((item) => {
+          if (item.Cpicture.length === 0) {
+            item.Cpicture = []
+          } else {
+            item.Cpicture = item.Cpicture.split(',')
+          }
+        })
+        console.log(dataList);
+        that.setData({
+          DataSource: [...that.data.DataSource, ...dataList]
+        })
       }
     })
 
-    wx.previewImage({
-      current: e.currentTarget.dataset.photurl,
-      urls: this.data.resource,
-    })
   },
-
   // 点击点赞的人
   TouchZanUser: function (e) {
     wx.showModal({
