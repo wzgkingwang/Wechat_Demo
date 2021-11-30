@@ -29,7 +29,6 @@ Page({
       }
     ],
     photoWidth: wx.getSystemInfoSync().windowWidth / 5,
-
     popTop: 0, //弹出点赞评论框的位置
     popWidth: 0, //弹出框宽度
     isShow: false, //判断是否显示弹出框
@@ -134,6 +133,8 @@ Page({
         }
       })
 
+    } else {
+      console.log('没有更多数据了。。。');
     }
 
   },
@@ -146,10 +147,25 @@ Page({
   },
 
   // 删除朋友圈
-  delete: function () {
+  delete: function (e) {
+    let that = this
     wx.showToast({
       title: '删除成功',
     })
+    wx.request({
+      url: `http://localhost:7001/api/comment/delete/${e.currentTarget.dataset.id}`,
+      method: 'DELETE',
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log();
+        that.setData({
+          DataSource: that.data.DataSource.splice(1, that.data.DataSource.length - 1)
+        })
+      }
+    })
+
   },
 
   // 点击了点赞评论

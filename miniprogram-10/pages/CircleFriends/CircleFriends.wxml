@@ -62,7 +62,7 @@
             <image class="img_rel" data-id="{{item.Ctime}}" data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
             <!-- 删除按钮、点赞评论 -->
             <view wx:if="{{isShow && item.Ctime===idShow}}" class="pinglun">
-              <view bindtap='delete' class="delete_rel">删除</view>
+              <view bindtap='delete' data-id="{{item.id}}" class="delete_rel">删除</view>
               <view class="zan_rel">点赞</view>
               <view class="pinglun_rel">评论</view>
             </view>
