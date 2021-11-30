@@ -51,6 +51,17 @@ Page({
     })
   },
 
+  // goDetails(event){
+  //   //携带id参数跳转
+  //   console.log(event.currentTarget.dataset.Ctime)
+  //   wx.navigateTo({
+  //     url: 'CirleFriends?id='+event.currentTarget.dataset.Ctime,
+  //   })
+  // },
+
+
+
+
   // 修改背景
   changce_pic() {
     let that = this

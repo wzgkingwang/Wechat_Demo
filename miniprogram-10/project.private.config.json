@@ -49,7 +49,7 @@
           "scene": null
         },
         {
-          "name": "detailed",
+          "name": "pages/detailed/detailed",
           "pathName": "pages/detailed/detailed",
           "query": "",
           "scene": null
