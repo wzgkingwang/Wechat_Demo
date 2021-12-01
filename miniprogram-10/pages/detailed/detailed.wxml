@@ -1,51 +1,74 @@
 <scroll-view class='page'>
-    <!-- 列表 -->
-    <view class='CircleList' wx:key='index' wx:for='{{DataSource}}'>
-      <!-- 头像、昵称、内容 -->
-      <view class='body-view'>
-        <!-- 头像 -->
-        <view class='left-view'>
-          <image class='user-icon' src='{{userInfo.avatarUrl}}'></image>
+  <!-- 列表 -->
+  <view class='CircleList' wx:key='index' wx:for='{{DataSource}}'>
+    <!-- 头像、昵称、内容 -->
+    <view class='body-view'>
+      <!-- 头像 -->
+      <view class='left-view'>
+        <image class='user-icon' src='{{userInfo.avatarUrl}}'></image>
+      </view>
+      <view class='right-view'>
+        <!-- 昵称 -->
+        <view class='user-name-view'>
+          <label class='user-name'>{{userInfo.nickName}}</label>
         </view>
-        <view class='right-view'>
-          <!-- 昵称 -->
-          <view class='user-name-view'>
-            <label class='user-name'>{{userInfo.nickName}}</label>
+        <!-- 内容 -->
+        <view class='user-content-view'>
+          <text class='user-content'>{{item.Ctext}}</text>
+        </view>
+        <!-- 图片 -->
+        <view class='photo-view'>
+          <view class='photo' wx:for-item="pItem" wx:for-index='i' wx:key='i' wx:for="{{item.Cpicture}}"
+            style='width:{{photoWidth}}px;height:{{photoWidth}}px'>
+            <image bindtap='LookPhoto' data-photUrl='{{pItem}}' src='{{pItem}}'
+              style='width:{{photoWidth}}px;height:{{photoWidth}}px'></image>
           </view>
-          <!-- 内容 -->
-          <view class='user-content-view'>
-            <text class='user-content'>{{item.Ctext}}</text>
+        </view>
+        <!-- 地理位置 -->
+        <view class='user-address-view'>
+          <label>{{item.Caddress}}</label>
+        </view>
+
+        <!-- 时间 -->
+        <view class='TDD-view'>
+          <label
+            style="width: 268rpx; height: 40rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{item.Ctime}}</label>
+
+          <image class="img_rel" data-id="{{item.Ctime}}" data-isShow='{{isShow}}' bindtap='TouchDiscuss'
+            src='/images/wxdiscuss.png'></image>
+          <!-- 删除按钮、点赞评论 -->
+          <view wx:if="{{isShow && item.Ctime===idShow}}" class="pinglun">
+            <view bindtap='delete' data-id="{{item.id}}" class="delete_rel">删除</view>
+            <view class="zan_rel" data-id="{{item.id}}" bindtap="click">点赞</view>
+            <view class="pinglun_rel" data-id="{{item.id}}" bindtap="comment">评论</view>
           </view>
-          <!-- 图片 -->
-          <view class='photo-view'>
-            <view class='photo' wx:for-item="pItem" wx:for-index='i' wx:key='i' wx:for="{{item.Cpicture}}"
-              style='width:{{photoWidth}}px;height:{{photoWidth}}px'>
-              <image bindtap='LookPhoto' data-photUrl='{{pItem}}' src='{{pItem}}'
-                style='width:{{photoWidth}}px;height:{{photoWidth}}px'></image>
+        </view>
+        <!-- 点赞 -->
+        <view class='zan-view'>
+          <view class='trigon-view'>
+            <image mode='aspectFill' class='trigon' src='/images/trigon.png'></image>
+          </view>
+
+          <!-- 点赞 -->
+          <view class='zan-bg-view'>
+            <!-- wx:key，复用dom节点，提高渲染效率 -->
+            <view class='zan-user-view' wx:key='index' wx:for='{{clickList[item.id]}}'>
+              <label bindtap='TouchZanUser' data-name='{{item}}' class='zan-user'>{{item}},</label>
             </view>
           </view>
-          <!-- 地理位置 -->
-          <view class='user-address-view'>
-            <label>{{item.Caddress}}</label>
-          </view>
-
-          <!-- 时间 -->
-          <view class='TDD-view'>
-            <label
-              style="width: 268rpx; height: 40rpx; display: block; box-sizing: border-box; left: NaNrpx; top: NaNrpx">{{item.Ctime}}</label>
-
-            <image class="img_rel" data-id="{{item.Ctime}}" data-isShow='{{isShow}}' bindtap='TouchDiscuss' src='/images/wxdiscuss.png'></image>
-            <!-- 删除按钮、点赞评论 -->
-            <view wx:if="{{isShow && item.Ctime===idShow}}" class="pinglun">
-              <view bindtap='delete' class="delete_rel">删除</view>
-              <view class="zan_rel">点赞</view>
-              <view class="pinglun_rel">评论</view>
+          <view class='line'></view>
+          <!-- 评论 -->
+          <view class='discuss-view'>
+            <view class='discuss' wx:key='index' wx:for='{{contnetList[item.id]}}'>
+              <label bindtap='TouchZanUser' data-name='{{item.firstname}}'
+                class='discuss-user'>{{item.firstname}}：</label>
+              <label class='content'>{{item.content}}</label>
             </view>
           </view>
-
-
         </view>
 
       </view>
+
     </view>
-  </scroll-view>
+  </view>
+</scroll-view>

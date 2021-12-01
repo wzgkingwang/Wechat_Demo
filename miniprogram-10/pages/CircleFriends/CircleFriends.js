@@ -32,8 +32,11 @@ Page({
     popTop: 0, //弹出点赞评论框的位置
     popWidth: 0, //弹出框宽度
     isShow: false, //判断是否显示弹出框
+
     bgUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcnews.chinadaily.com.cn%2Fimg%2Fattachement%2Fjpg%2Fsite1%2F20170125%2Fa41f726b573a19f225971e.jpg&refer=http%3A%2F%2Fcnews.chinadaily.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640916956&t=23507a1f4db431f794ce84d7315f3feb',
-    idShow: ''
+    idShow: '',
+    clickList: {}, //文章点赞存储对象
+    contnetList: {} //评论储存
   },
 
   // 发表跳转 发布页面
@@ -73,6 +76,26 @@ Page({
   onLoad: function (options) {
     let that = this
     that.getResouce(that)
+    // 得到点赞数据
+    wx.getStorage({
+      key: 'click',
+      success(res) {
+        that.setData({
+          clickList: res.data
+        })
+      }
+    })
+    // 得到评论数据
+    wx.getStorage({
+      key: 'comment',
+      success(res) {
+        console.log(res.data);
+        that.setData({
+          contnetList: res.data
+        })
+      }
+    })
+    // 得到用户信息
     wx.getStorage({
       key: 'userInfo',
       success(res) {
@@ -88,7 +111,6 @@ Page({
   },
   // 点击图片进行大图查看
   LookPhoto: function (e) {
-    console.log(e.currentTarget.dataset.photurl);
     wx.previewImage({
       current: e.currentTarget.dataset.photurl,
       urls: e.currentTarget.dataset.resouce,
@@ -128,6 +150,63 @@ Page({
     }
 
   },
+  //点赞功能
+  click(e) {
+    let obj = {}
+    if (this.data.clickList[e.currentTarget.dataset.id] && this.data.clickList[e.currentTarget.dataset.id].includes(this.data.userInfo.nickName)) {
+      obj = {
+        ...this.data.clickList,
+        [e.currentTarget.dataset.id]: []
+      }
+    } else {
+      obj = {
+        ...this.data.clickList,
+        [e.currentTarget.dataset.id]: [this.data.userInfo.nickName]
+      }
+    }
+
+    wx.setStorage({
+      data: obj,
+      key: 'click',
+    })
+    this.setData({
+      clickList: obj
+    })
+  },
+  //评论功能
+  comment(e) {
+    let obj = {}
+    // let isTrue=false
+    // this.data.clickList[e.currentTarget.dataset.id].forEach((item) => {
+    //   console.log(item.firstname, this.data.userInfo.nickName, this.data.clickList[e.currentTarget.dataset.id]);
+    //   if (item=== this.data.userInfo.nickName) {
+    //     isTrue=true
+    //   }
+    // })
+    // if (isTrue) {
+    //   obj = {
+    //     ...this.data.contnetList,
+    //     [e.currentTarget.dataset.id]:[]
+    //   }
+    //   isTrue=false
+    // } else {
+    obj = {
+      ...this.data.contnetList,
+      [e.currentTarget.dataset.id]: [{
+        'firstname': this.data.userInfo.nickName,
+        'content': '听君一席话，如听一席话！！'
+      }]
+    }
+    // }
+
+    wx.setStorage({
+      data: obj,
+      key: 'comment',
+    })
+    this.setData({
+      contnetList: obj
+    })
+  },
   // 点击点赞的人
   TouchZanUser: function (e) {
     wx.showModal({
@@ -149,7 +228,6 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log();
         that.setData({
           DataSource: that.data.DataSource.splice(1, that.data.DataSource.length - 1)
         })
