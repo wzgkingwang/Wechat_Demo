@@ -66,8 +66,8 @@
             <!-- 删除按钮、点赞评论、时间 -->
             <view wx:if="{{isShow && item.Ctime===idShow}}" class="pinglun">
               <view bindtap='delete' data-id="{{item.id}}" class="delete_rel">删除</view>
-              <view class="zan_rel">点赞</view>
-              <view class="pinglun_rel">评论</view>
+              <view class="zan_rel" data-id="{{item.id}}"  bindtap="click">点赞</view>
+              <view class="pinglun_rel"  data-id="{{item.id}}"  bindtap="comment">评论</view>
             </view>
           </view>
 
@@ -80,14 +80,14 @@
             <!-- 点赞 -->
             <view class='zan-bg-view'>
               <!-- wx:key，复用dom节点，提高渲染效率 -->
-              <view class='zan-user-view' wx:key='index' wx:for='{{zanSource}}'>
+              <view class='zan-user-view' wx:key='index' wx:for='{{clickList[item.id]}}'>
                 <label bindtap='TouchZanUser' data-name='{{item}}' class='zan-user'>{{item}},</label>
               </view>
             </view>
             <view class='line'></view>
             <!-- 评论 -->
             <view class='discuss-view'>
-              <view class='discuss' wx:key='index' wx:for='{{contnet}}'>
+              <view class='discuss' wx:key='index' wx:for='{{contnetList[item.id]}}'>
                 <label bindtap='TouchZanUser' data-name='{{item.firstname}}'
                   class='discuss-user'>{{item.firstname}}：</label>
                 <label class='content'>{{item.content}}</label>

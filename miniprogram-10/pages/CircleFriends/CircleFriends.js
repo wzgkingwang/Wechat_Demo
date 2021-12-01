@@ -10,30 +10,32 @@ Page({
   data: {
     userInfo: {},
     DataSource: [],
-    // zanSource: ['张三', '李四', '王五', '赵六', '孙七', '周八'],
-    // contnet: [{
-    //     'firstname': '张三',
-    //     'content': '确实！！'
-    //   },
-    //   {
-    //     'firstname': '李四',
-    //     'content': '俺也一样！！'
-    //   },
-    //   {
-    //     'firstname': '王五',
-    //     'content': '这话确实说的很这话！！'
-    //   },
-    //   {
-    //     'firstname': '周八',
-    //     'content': '听君一席话，如听一席话！！'
-    //   }
-    // ],
+    zanSource: ['张三', '李四', '王五', '赵六', '孙七', '周八'],
+    contnet: [{
+        'firstname': '张三',
+        'content': '确实！！'
+      },
+      {
+        'firstname': '李四',
+        'content': '俺也一样！！'
+      },
+      {
+        'firstname': '王五',
+        'content': '这话确实说的很这话！！'
+      },
+      {
+        'firstname': '周八',
+        'content': '听君一席话，如听一席话！！'
+      }
+    ],
     photoWidth: wx.getSystemInfoSync().windowWidth / 5,
     popTop: 0, //弹出点赞评论框的位置
     popWidth: 0, //弹出框宽度
     isShow: false, //判断是否显示弹出框
     bgUrl: 'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
-    idShow: ''
+    idShow: '',
+    clickList: {}, //文章点赞存储对象
+    contnetList: {} //评论储存
   },
 
   // 发表跳转 发布页面
@@ -73,6 +75,26 @@ Page({
   onLoad: function (options) {
     let that = this
     that.getResouce(that)
+    // 得到点赞数据
+    wx.getStorage({
+      key: 'click',
+      success(res) {
+        that.setData({
+          clickList: res.data
+        })
+      }
+    })
+    // 得到评论数据
+    wx.getStorage({
+      key: 'comment',
+      success(res) {
+        console.log(res.data);
+        that.setData({
+          contnetList: res.data
+        })
+      }
+    })
+    // 得到用户信息
     wx.getStorage({
       key: 'userInfo',
       success(res) {
@@ -88,7 +110,6 @@ Page({
   },
   // 点击图片进行大图查看
   LookPhoto: function (e) {
-    console.log(e.currentTarget.dataset.photurl);
     wx.previewImage({
       current: e.currentTarget.dataset.photurl,
       urls: e.currentTarget.dataset.resouce,
@@ -128,6 +149,63 @@ Page({
     }
 
   },
+  //点赞功能
+  click(e) {
+    let obj = {}
+    if (this.data.clickList[e.currentTarget.dataset.id] && this.data.clickList[e.currentTarget.dataset.id].includes(this.data.userInfo.nickName)) {
+      obj = {
+        ...this.data.clickList,
+        [e.currentTarget.dataset.id]: []
+      }
+    } else {
+      obj = {
+        ...this.data.clickList,
+        [e.currentTarget.dataset.id]: [this.data.userInfo.nickName]
+      }
+    }
+
+    wx.setStorage({
+      data: obj,
+      key: 'click',
+    })
+    this.setData({
+      clickList: obj
+    })
+  },
+  //评论功能
+  comment(e) {
+    let obj = {}
+    // let isTrue=false
+    // this.data.clickList[e.currentTarget.dataset.id].forEach((item) => {
+    //   console.log(item.firstname, this.data.userInfo.nickName, this.data.clickList[e.currentTarget.dataset.id]);
+    //   if (item=== this.data.userInfo.nickName) {
+    //     isTrue=true
+    //   }
+    // })
+    // if (isTrue) {
+    //   obj = {
+    //     ...this.data.contnetList,
+    //     [e.currentTarget.dataset.id]:[]
+    //   }
+    //   isTrue=false
+    // } else {
+    obj = {
+      ...this.data.contnetList,
+      [e.currentTarget.dataset.id]: [{
+        'firstname': this.data.userInfo.nickName,
+        'content': '听君一席话，如听一席话！！'
+      }]
+    }
+    // }
+
+    wx.setStorage({
+      data: obj,
+      key: 'comment',
+    })
+    this.setData({
+      contnetList: obj
+    })
+  },
   // 点击点赞的人
   TouchZanUser: function (e) {
     wx.showModal({
@@ -149,7 +227,6 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log();
         that.setData({
           DataSource: that.data.DataSource.splice(1, that.data.DataSource.length - 1)
         })

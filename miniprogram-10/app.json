@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/CircleFriends/CircleFriends",
     "pages/index/index",
+    "pages/CircleFriends/CircleFriends",
     "pages/release/release",
     "pages/logs/logs",
     "pages/detailed/detailed"
