@@ -1,0 +1,4 @@
+<view class="box">
+  <view class="container title">做大做强</view>
+  <image src='../../images/bigstrong.png' style="width:100%"></image>
+</view>

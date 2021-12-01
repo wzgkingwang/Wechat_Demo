@@ -3,12 +3,12 @@
     "pages/CircleFriends/CircleFriends",
     "pages/index/index",
     "pages/release/release",
-    "pages/logs/logs",
-    "pages/detailed/detailed"
+    "pages/detailed/detailed",
+    "pages/index_1/index_1"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#1f9baa",
+    "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "我的城院生活",
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true,
@@ -21,17 +21,30 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/CircleFriends/CircleFriends",
+        "pagePath": "pages/index_1/index_1",
         "text": "首页",
         "iconPath": "/images/icon_API.png",
         "selectedIconPath": "/images/icon_11.png"
       },
       {
+        "pagePath": "pages/index_1/index_1",
+        "text": "首页",
+        "iconPath": "/images/icon_API.png",
+        "selectedIconPath": "/images/icon_11.png"
+      },
+      {
+        "pagePath": "pages/CircleFriends/CircleFriends",
+        "text": "朋友圈",
+        "iconPath": "/images/pyq.png",
+        "selectedIconPath": "/images/pyq_2.png"
+      },
+      {
         "pagePath": "pages/index/index",
-        "text": "发现首页",
+        "text": "个人首页",
         "iconPath": "/images/icon_2.png",
         "selectedIconPath": "/images/icon_22.png"
       }
+
     ]
   }
 }

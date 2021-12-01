@@ -48,7 +48,8 @@
   width: 104rpx;
   height: 48rpx;
   display: inline-block;
-  box-sizing: border-box
+  box-sizing: border-box;
+  color:white
 }
 
 

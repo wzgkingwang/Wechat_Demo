@@ -6,9 +6,7 @@
   </view>
   <!-- 个性签名、发布-->
   <view class="box3">
-    <image style="position: relative; left: 610rpx; top: -306rpx; width: 98rpx; height: 80rpx; display: block; box-sizing: border-box" bindtap="release_r"
-      src="/images/xiangji.png" />
-    <!-- <text class="my_text"></text> -->
+    <text class="my_text">你曾少年</text>
     <!-- <image bindtap="release_r" style="position: relative; left: -288rpx; top: -1rpx">发布</button> -->
   </view>
   <!-- 头像、发布 -->

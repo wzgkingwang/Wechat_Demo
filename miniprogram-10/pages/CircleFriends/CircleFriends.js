@@ -10,29 +10,29 @@ Page({
   data: {
     userInfo: {},
     DataSource: [],
-    // zanSource: ['张三', '李四', '王五', '赵六', '孙七', '周八'],
-    // contnet: [{
-    //     'firstname': '张三',
-    //     'content': '确实！！'
-    //   },
-    //   {
-    //     'firstname': '李四',
-    //     'content': '俺也一样！！'
-    //   },
-    //   {
-    //     'firstname': '王五',
-    //     'content': '这话确实说的很这话！！'
-    //   },
-    //   {
-    //     'firstname': '周八',
-    //     'content': '听君一席话，如听一席话！！'
-    //   }
-    // ],
+    zanSource: ['张三', '李四', '王五', '赵六', '孙七', '周八'],
+    contnet: [{
+        'firstname': '张三',
+        'content': '确实！！'
+      },
+      {
+        'firstname': '李四',
+        'content': '俺也一样！！'
+      },
+      {
+        'firstname': '王五',
+        'content': '这话确实说的很这话！！'
+      },
+      {
+        'firstname': '周八',
+        'content': '听君一席话，如听一席话！！'
+      }
+    ],
     photoWidth: wx.getSystemInfoSync().windowWidth / 5,
     popTop: 0, //弹出点赞评论框的位置
     popWidth: 0, //弹出框宽度
     isShow: false, //判断是否显示弹出框
-    bgUrl: 'http://bos.pgzs.com/rbpiczy/Wallpaper/2011/10/13/d8062bbad6e7467db0d22abf4de74ac0-6.jpg',
+    bgUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcnews.chinadaily.com.cn%2Fimg%2Fattachement%2Fjpg%2Fsite1%2F20170125%2Fa41f726b573a19f225971e.jpg&refer=http%3A%2F%2Fcnews.chinadaily.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1640916956&t=23507a1f4db431f794ce84d7315f3feb',
     idShow: ''
   },
 
@@ -158,7 +158,7 @@ Page({
 
   },
 
-  // 点击了点赞评论、时间
+  // 、时间
   TouchDiscuss: function (e) {
     this.setData({
       isShow: !this.data.isShow,
